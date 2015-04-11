@@ -119,7 +119,7 @@ object SbtBowerPlugin extends Plugin {
 }
 
 class FrontendDependency( artifactName: String) {
-	def %%% ( revision: String ) = new FrontendDependencyWithRevision(artifactName, revision )
+	def %%%% ( revision: String ) = new FrontendDependencyWithRevision(artifactName, revision )
   def install:JField = throw new IllegalArgumentException("Must provide a version")
 }
 
