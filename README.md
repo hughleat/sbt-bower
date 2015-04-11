@@ -1,3 +1,7 @@
+I am doing this fork for two reasons.
+- There is a bug which causes failure when the asset directories are not already built
+- The %%% syntax is also used by another plugin that I want to use
+
 # sbt-bower: SBT Bower Plugin
 
 [Simple Build Tool] plugin for using [bower] to manage frontend dependencies.
