@@ -20,6 +20,12 @@ object SbtBowerPlugin extends Plugin {
     implicit def toFrontendDependency( artifactName: String ) = new FrontendDependency( artifactName )
 
     lazy val setupFilesTask = Def.task {
+        val sourceDirectoryFile = (sourceDirectory in Bower).value
+        if( !sourceDirectoryFile.exists ) sourceDirectoryFile.mkdirs
+        
+        val installDirectoryFile = (installDirectory in Bower).value
+        if( !installDirectoryFile.exists ) installDirectoryFile.mkdirs
+        
         val bowerRC = (sourceDirectory in Bower).value / ".bowerrc"
         val bowerJSON = (sourceDirectory in Bower).value / "bower.json"
         val installDirectoryPath = (sourceDirectory in Bower).value.relativize((installDirectory in Bower).value)
