@@ -8,7 +8,7 @@ object SbtBowerBuild extends Build with BuildExtra {
 	lazy val mainSettings: Seq[Def.Setting[_]] = Defaults.defaultSettings ++ Seq(
 		sbtPlugin := true,
 		name := "sbt-bower",
-		organization := "com.mdedetrich",
+		organization := "com.hjl",
 		version := "0.2.1",
 		scalacOptions ++= Seq("-deprecation", "-unchecked"),
     libraryDependencies ++= Seq(
