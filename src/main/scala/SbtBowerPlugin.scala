@@ -129,5 +129,8 @@ class FrontendDependency( artifactName: String) {
 }
 
 class FrontendDependencyWithRevision( artifactName: String, revision: String ) extends FrontendDependency( artifactName ) {
-    override def install = JField(artifactName,JString(revision))
+    override def install = {
+      val safeArtifactName = artifactName.replaceAll("/","_")
+      JField(safeArtifactName, s"$artifactName#$revision")
+    }
 }
