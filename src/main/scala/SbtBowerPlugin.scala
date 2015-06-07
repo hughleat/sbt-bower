@@ -129,8 +129,9 @@ class FrontendDependency( artifactName: String) {
 }
 
 class FrontendDependencyWithRevision( artifactName: String, revision: String ) extends FrontendDependency( artifactName ) {
+    require(artifactName.trim.nonEmpty, s"Artifact name may not be empty. Received: $artifactName")
     override def install = {
-      val safeArtifactName = artifactName.replaceAll("/","_")
+      val safeArtifactName = artifactName.split("/").last
       JField(safeArtifactName, s"$artifactName#$revision")
     }
 }
